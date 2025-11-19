@@ -7,15 +7,19 @@ import com.companion_animal.dto.loss.LossSigunguDTO;
 import com.companion_animal.service.loss.LossService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Slf4j
 @RestController
+@RequestMapping(value = "/api")
 public class LossController {
 
     @Autowired
@@ -74,7 +78,7 @@ public class LossController {
     }
 
     @GetMapping("/loss/sido")
-    public LossSidoDTO.Items sidoList() {
+    public ResponseEntity<List<LossSidoDTO.Item>> sidoList() {
 
         Map<String, Object> params = new HashMap<>();
         params.put("pageNo", 1);
@@ -82,14 +86,6 @@ public class LossController {
 
         LossSidoDTO response = lossService.callApi("lossInfoSido", params, LossSidoDTO.class);
 
-        if (lossService.isSuccess(response.getResponse().getHeader().getResultCode())) {
-            return response.getResponse().getBody().getItems();
-        }
-
-        return null;
+        return ResponseEntity.ok(response.getResponse().getBody().getItems().getItem());
     }
-
-
-
-
 }
