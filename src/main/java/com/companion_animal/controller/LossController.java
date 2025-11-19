@@ -27,7 +27,7 @@ public class LossController {
 
 
     @GetMapping("/loss")
-    public LossInfoDTO.Items lossList(@RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "10") int numOfRows) {
+    public ResponseEntity<List<LossInfoDTO.Item>> lossList(@RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "10") int numOfRows) {
 
         Map<String, Object> params = new HashMap<>();
         params.put("pageNo", pageNo);
@@ -35,15 +35,11 @@ public class LossController {
 
         LossInfoDTO response = lossService.callApi("lossInfo", params, LossInfoDTO.class);
 
-        if (lossService.isSuccess(response.getResponse().getHeader().getResultCode())) {
-            return response.getResponse().getBody().getItems();
-        }
-
-        return null;
+        return ResponseEntity.ok(response.getResponse().getBody().getItems().getItem());
     }
 
     @GetMapping("/loss/kind")
-    public LossKindDTO.Items kindList(@RequestParam String upperCode) {
+    public ResponseEntity<List<LossKindDTO.Item>> kindList(@RequestParam String upperCode) {
 
         Map<String, Object> params = new HashMap<>();
         params.put("pageNo", 1);
@@ -52,16 +48,12 @@ public class LossController {
 
         LossKindDTO response = lossService.callApi("lossInfoKind", params, LossKindDTO.class);
 
-        if (lossService.isSuccess(response.getResponse().getHeader().getResultCode())) {
-            return response.getResponse().getBody().getItems();
-        }
-
-        return null;
+        return ResponseEntity.ok(response.getResponse().getBody().getItems().getItem());
     }
 
 
     @GetMapping("/loss/sigungu")
-    public LossSigunguDTO.Items sigunguList(@RequestParam String upperCode) {
+    public ResponseEntity<List<LossSigunguDTO.Item>> sigunguList(@RequestParam String upperCode) {
 
         Map<String, Object> params = new HashMap<>();
         params.put("pageNo", 1);
@@ -70,11 +62,7 @@ public class LossController {
 
         LossSigunguDTO response = lossService.callApi("lossInfoSigungu", params, LossSigunguDTO.class);
 
-        if (lossService.isSuccess(response.getResponse().getHeader().getResultCode())) {
-            return response.getResponse().getBody().getItems();
-        }
-
-        return null;
+        return ResponseEntity.ok(response.getResponse().getBody().getItems().getItem());
     }
 
     @GetMapping("/loss/sido")
