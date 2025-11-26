@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: local # 기본적으로 사용할 프로필
+
+  application:
+    name: companion-animal
+
+
+
+

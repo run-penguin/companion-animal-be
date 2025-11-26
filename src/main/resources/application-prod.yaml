@@ -1,0 +1,12 @@
+logging:
+  level:
+    com.companion_animal: INFO
+
+server:
+  port: ${PORT:8080}
+
+external:
+  api:
+    loss:
+      key: ${LOSS_API_KEY}
+      url: 'https://apis.data.go.kr/1543061/lossInfoService'
