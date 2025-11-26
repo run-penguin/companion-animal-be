@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: companion-animal-api
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: LOSS_API_KEY
+        sync: false  # Render 대시보드에서 직접 설정
+---
+  SPRING_PROFILES_ACTIVE=prod
+  LOSS_API_KEY=your-actual-api-key
+  PORT=8080  # Render가 자동으로 설정하지만 명시적으로 추가 가능
