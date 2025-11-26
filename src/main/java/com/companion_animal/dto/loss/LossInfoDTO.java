@@ -56,27 +56,19 @@ public class LossInfoDTO {
     @NoArgsConstructor
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Item {
-        private String desertionNo;      // 유기번호
-        private String filename;          // 썸네일 이미지
-        private String happenDt;          // 접수일
-        private String happenPlace;       // 발견장소
-        private String kindCd;            // 품종
-        private String colorCd;           // 색상
-        private String age;               // 나이
-        private String weight;            // 체중
-        private String noticeNo;          // 공고번호
-        private String noticeSdt;         // 공고시작일
-        private String noticeEdt;         // 공고종료일
-        private String popfile;           // 이미지
-        private String processState;      // 상태
-        private String sexCd;             // 성별
-        private String neuterYn;          // 중성화여부
-        private String specialMark;       // 특징
-        private String careNm;            // 보호소이름
-        private String careTel;           // 보호소전화번호
-        private String careAddr;          // 보호장소
-        private String orgNm;             // 관할기관
-        private String chargeNm;          // 담당자
-        private String officeTel;        // 담당자연락처
+        private String rfidCd;
+        private String callName;
+        private String callTel;
+        private String happenDt;
+        private String happenAddr;
+        private String happenAddrDtl;
+        private String happenPlace;
+        private String orgNm;
+        private String popfile;
+        private String kindCd;
+        private String colorCd;
+        private String sexCd;
+        private String age;
+        private String specialMark;
     }
 }

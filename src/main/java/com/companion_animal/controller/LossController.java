@@ -27,11 +27,22 @@ public class LossController {
 
 
     @GetMapping("/loss")
-    public ResponseEntity<List<LossInfoDTO.Item>> lossList(@RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "10") int numOfRows) {
+    public ResponseEntity<List<LossInfoDTO.Item>> lossList(@RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "10") int numOfRows, String fromDate, String toDate, String sidoCode, String sigunguCode, Integer selectedKind) {
 
         Map<String, Object> params = new HashMap<>();
+
+        params.put("bgnde", fromDate);
+        params.put("ended", toDate);
+
+        if (selectedKind != 0) {
+            params.put("upkind", selectedKind);
+        }
+
+        params.put("upr_cd", sidoCode);
+        params.put("org_cd", sigunguCode);
         params.put("pageNo", pageNo);
         params.put("numOfRows", numOfRows);
+        params.put("type", "json");
 
         LossInfoDTO response = lossService.callApi("lossInfo", params, LossInfoDTO.class);
 
