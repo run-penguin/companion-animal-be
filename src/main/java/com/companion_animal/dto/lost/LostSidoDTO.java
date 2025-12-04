@@ -1,4 +1,4 @@
-package com.companion_animal.dto.loss;
+package com.companion_animal.dto.lost;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LossSigunguDTO {
+public class LostSidoDTO {
 
     private Response response;
 
@@ -46,18 +46,17 @@ public class LossSigunguDTO {
     // response.body.items
     @Getter
     @NoArgsConstructor
-    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonIgnoreProperties
     public static class Items {
         private List<Item> item;
     }
 
-    // response.body.items.item
     @Getter
     @NoArgsConstructor
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Item {
-        private String uprCd; // 상위 코드
         private String orgCd; // 코드
-        private String orgdownNm; // 코드명
+        private String orgdownNm; // 이름
     }
+
 }

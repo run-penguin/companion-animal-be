@@ -1,4 +1,4 @@
-package com.companion_animal.service.loss;
+package com.companion_animal.service.lost;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -12,15 +12,15 @@ import java.util.Map;
 
 @Slf4j
 @Service
-public class LossService {
+public class LostService {
 
-    private final String lossApiKey;
+    private final String lostApiKey;
 
-    private final String lossApiUri;
+    private final String lostApiUri;
 
-    public LossService(@Value("${external.api.loss.key}") String lossApiKey, @Value("${external.api.loss.url}") String lossApiUri) {
-        this.lossApiKey = lossApiKey;
-        this.lossApiUri = lossApiUri;
+    public LostService(@Value("${external.api.lost.key}") String lostApiKey, @Value("${external.api.lost.url}") String lostApiUri) {
+        this.lostApiKey = lostApiKey;
+        this.lostApiUri = lostApiUri;
     }
 
     @Autowired
@@ -33,8 +33,8 @@ public class LossService {
     public <T> T callApi(String endpoint, Map<String, Object> params, Class<T> responseType) {
         try {
             // URL 빌더 생성
-            UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(lossApiUri + "/" + endpoint)
-                    .queryParam("serviceKey", lossApiKey)
+            UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(lostApiUri + "/" + endpoint)
+                    .queryParam("serviceKey", lostApiKey)
                     .queryParam("_type", "json");
 
             // 추가 파라미터 설정

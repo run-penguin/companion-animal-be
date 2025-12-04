@@ -7,6 +7,6 @@ server:
 
 external:
   api:
-    loss:
-      key: ${LOSS_API_KEY}
-      url: 'https://apis.data.go.kr/1543061/lossInfoService'
+    lost:
+      key: ${LOST_API_KEY}
+      url: 'https://apis.data.go.kr/1543061/lostInfoService'
