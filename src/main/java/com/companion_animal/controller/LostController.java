@@ -35,7 +35,7 @@ public class LostController {
         params.put("ended", toDate);
 
         if (selectedKind != 0) {
-            params.put("up_kind_cd", selectedKind);
+            params.put("upkind", selectedKind);
         }
 
         params.put("upr_cd", sidoCode);
