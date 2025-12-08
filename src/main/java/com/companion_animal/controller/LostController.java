@@ -35,7 +35,7 @@ public class LostController {
         params.put("ended", toDate);
 
         if (selectedKind != 0) {
-            params.put("upkind", selectedKind);
+            params.put("up_kind_cd", selectedKind);
         }
 
         params.put("upr_cd", sidoCode);
@@ -44,7 +44,7 @@ public class LostController {
         params.put("numOfRows", numOfRows);
         params.put("type", "json");
 
-        LostInfoDTO response = lostService.callApi("lostInfo", params, LostInfoDTO.class);
+        LostInfoDTO response = lostService.callApi("lossInfo", params, LostInfoDTO.class);
 
         return ResponseEntity.ok(response.getResponse().getBody());
     }
@@ -57,7 +57,7 @@ public class LostController {
         params.put("numOfRows", 1000);
         params.put("up_kind_cd", upperCode);
 
-        LostKindDTO response = lostService.callApi("lostInfoKind", params, LostKindDTO.class);
+        LostKindDTO response = lostService.callApi("lossInfoKind", params, LostKindDTO.class);
 
         return ResponseEntity.ok(response.getResponse().getBody().getItems().getItem());
     }
@@ -71,7 +71,7 @@ public class LostController {
         params.put("numOfRows", 1000);
         params.put("upr_cd", upperCode);
 
-        LostSigunguDTO response = lostService.callApi("lostInfoSigungu", params, LostSigunguDTO.class);
+        LostSigunguDTO response = lostService.callApi("lossInfoSigungu", params, LostSigunguDTO.class);
 
         return ResponseEntity.ok(response.getResponse().getBody().getItems().getItem());
     }
@@ -83,7 +83,7 @@ public class LostController {
         params.put("pageNo", 1);
         params.put("numOfRows", 1000);
 
-        LostSidoDTO response = lostService.callApi("lostInfoSido", params, LostSidoDTO.class);
+        LostSidoDTO response = lostService.callApi("lossInfoSido", params, LostSidoDTO.class);
 
         return ResponseEntity.ok(response.getResponse().getBody().getItems().getItem());
     }
