@@ -34,7 +34,7 @@ public class LostController {
         params.put("bgnde", fromDate);
         params.put("ended", toDate);
 
-        if (selectedKind != 0) {
+        if (selectedKind != null && selectedKind != 0) {
             params.put("upkind", selectedKind);
         }
 
