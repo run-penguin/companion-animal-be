@@ -30,6 +30,7 @@ public class LostInfoDTO {
         private int reqNo;
         private String resultCode;
         private String resultMsg;
+        private String errorMsg;
     }
 
     // response.body
